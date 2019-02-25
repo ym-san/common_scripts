@@ -9,6 +9,21 @@ import shutil
 import json
 import pandas as pd
 
+# JSONを開く
+def OpenJson(dir, filepath):
+    dir_name = os.path.dirname(os.path.abspath(dir)) 
+    path = os.path.join(dir_name, filepath)
+    file = open(path, 'r')
+    return json.load(file)
+
+# Configを開く
+def OpenConfig():
+    return OpenJson(__file__, '../config/config.json')
+
+# HostsConfigを開く
+def OpenHosts():
+    return OpenJson(__file__, '../config/hosts.json')
+
 # LOG
 config_data = OpenConfig()
 
@@ -48,21 +63,6 @@ class logger:
 
     # def critical(self, msg):
     #     self.logger.critical(msg)
-
-# JSONを開く
-def OpenJson(dir, filepath):
-    dir_name = os.path.dirname(os.path.abspath(dir)) 
-    path = os.path.join(dir_name, filepath)
-    file = open(path, 'r')
-    return json.load(file)
-
-# Configを開く
-def OpenConfig():
-    return OpenJson(__file__, '../config/config.json')
-
-# HostsConfigを開く
-def OpenHosts():
-    return OpenJson(__file__, '../config/hosts.json')
 
 # Pathの結合
 def CombPath(path,file):
