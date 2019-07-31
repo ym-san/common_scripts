@@ -1,0 +1,6 @@
+{
+    "log": {
+        "//": "DEBUG or INFO or ERROR",
+        "level": "DEBUG"
+    }
+}

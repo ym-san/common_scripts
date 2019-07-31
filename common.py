@@ -18,11 +18,7 @@ def OpenJson(dir, filepath):
 
 # Configを開く
 def OpenConfig():
-    return OpenJson(__file__, '../config/config.json')
-
-# HostsConfigを開く
-def OpenHosts():
-    return OpenJson(__file__, '../config/hosts.json')
+    return OpenJson(__file__, './config/config.json')
 
 # LOG
 config_data = OpenConfig()
@@ -194,3 +190,9 @@ def UpdateCsv(df, path, filename_list, log):
     ChmodFile(CombPath(path, outputfile))
     log.debug('UPDATE ' + CombPath(path, outputfile))
 
+# ファイルの拡張子チェック
+def SearchFileFromExt(file, ext):
+    file_name, file_ext = os.path.splitext(file)
+    if file_ext != ext:
+        return ""
+    return file_name
